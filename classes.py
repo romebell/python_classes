@@ -8,22 +8,25 @@
 
 
 class CoffeeCup():
-  def __init__(self, capacity):
-    self.capacity = capacity
-    self.amount = 0
-
-  def fill(self):
-      print('Fill coffee cup')
-      self.amount = self.capacity
-
-  def empty(self):
-      self.amount = 0
-
-  def drink(self, amount):
-    self.amount -= amount
-    if (self.amount <= 0):
-        print('Cup is empty')
+    def __init__(self, capacity):
+        self.capacity = capacity
         self.amount = 0
+
+    def __str__(self): 
+        return f'Coffee cup with capacity of {self.capacity}'
+
+    def fill(self):
+        print('Fill coffee cup')
+        self.amount = self.capacity
+
+    def empty(self):
+        self.amount = 0
+
+    def drink(self, amount):
+        self.amount -= amount
+        if (self.amount <= 0):
+            print('Cup is empty')
+            self.amount = 0
 
 # Made an instance
 starbucks_cup = CoffeeCup(16)
@@ -63,6 +66,10 @@ class Fighter():
         self.signature_move = signature_move
         self.moves = [signature_move]
         self.power = 100
+
+    def __str__(self):
+        # return f'Fighter: {self.name}'
+        return 'Fighter: {}'.format(self.name)
     
     def add_move(self, new_move):
         self.moves.append(new_move)
@@ -99,6 +106,7 @@ print('# Run attack method')
 print('Move 1 ->', scorpion.attack('Spear Throw')) # return a string, which has to be printed
 print('Move 2 -> ', scorpion.attack('Summon Flame'))
 print('Move 3 ->', scorpion.attack('Sumo Kick'))
+print('-----')
 
 
 '''
@@ -109,3 +117,7 @@ Weapon Attack 3
 Weapon Attack 4
 Throw
 '''
+
+# Print each object
+print('Starbucks Cup:', starbucks_cup)
+print('Scorpion:', scorpion)
