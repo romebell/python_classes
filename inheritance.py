@@ -72,3 +72,26 @@ class Android(Phone):
 # inherit the Android class
 # Add 2 methods onto class
 # Test class with using some of the parent methods
+
+class SamsungGalaxy(Android):
+    def __init__(self, phone_number, color):
+        super().__init__(phone_number)
+        self.color = color
+        self.apps = []
+
+    def __str__(self):
+        return f'Samsung Galaxy: {self.number}'
+    
+    def install_app(self, app):
+        self.apps.append(app)
+        print('Apps:', self.apps)
+
+    def download_holy_grail(self):
+        print('Download Jay-Z Album: Holy Grail')
+
+
+rome_new_phone = SamsungGalaxy('123-456-7890', 'red')
+print(rome_new_phone)
+rome_new_phone.install_app('Slack')
+rome_new_phone.install_app('Zoom')
+rome_new_phone.download_holy_grail()
